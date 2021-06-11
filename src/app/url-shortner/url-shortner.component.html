@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="col-md-6 offset-3">
+    <form [formGroup]="urlForm" (ngSubmit)="short_Url()">
+        <div class="form-group form-outline mb-4">
+        <input type="text" class="form-control" formControlName='Url'>
+        </div>
+        <div class="form-group text-center form-outline mb-4">
+        <button type="submit" class="btn btn-success ">Submit</button>
+        </div>
+        <div *ngIf="sht_Url"><a href=this.sht_Url>{{this.sht_Url}}</a></div>
+        <div *ngIf="this.error" class="text-danger alert alert-danger">"This request can't be proccessed now please try after sometime"</div>
+    </form>
+    </div>
+</div>
