@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="col-md-6 offset-3">
+    <h3 class="text-center">Registration Form</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="Name">First name</label>
+            <input type="text" id="Name" class="form-control" formControlName="Name"/>
+            <p *ngIf="registerForm.controls.Name.dirty && registerForm.controls.Name.errors" class="alert alert-danger">This field is required!</p>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-outline">
+            <label class="form-label" for="LastName">Last name</label>
+            <input type="text" id="LastName" class="form-control" formControlName="LastName" />
+            <p *ngIf="registerForm.controls.LastName.dirty && registerForm.controls.LastName.errors" class="alert alert-danger">This field is required!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="email">Email address :- <span class="text-danger">*</span></label>
+        <input type="email" id="email" class="form-control"  formControlName="Email_Id"/>
+        <p class="text text-danger" *ngIf="registerForm.controls.Email_Id.touched && registerForm.controls.Email_Id.errors.emailError">{{registerForm.controls.Email_Id.errors.emailError.message}}</p>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="pwd">Password :-</label>
+        <input type="password" id="pwd" class="form-control" formControlName="password" />
+        <p *ngIf="registerForm.controls.password.dirty && registerForm.controls.password.errors" class="alert alert-danger">This field is required!</p>
+      </div>
+
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+
+      <!-- Register buttons with Google-->
+      <div class="text-center">
+        <p>or sign up with:</p>
+
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+          <i class="fab fa-google">Google</i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
